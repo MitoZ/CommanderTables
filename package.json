@@ -1,0 +1,11 @@
+{
+  "name": "commander-tables",
+  "version": "0.0.1",
+  "devDependencies": {
+    "angular": "^1.5.9",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.9",
+    "raw-loader": "^0.5.1",
+    "webpack": "^1.14.0"
+  }
+}
