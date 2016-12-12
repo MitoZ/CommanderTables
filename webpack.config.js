@@ -1,5 +1,5 @@
 'use strict';
-
+const webpack = require('webpack');
 module.exports = {
   context: __dirname + '/app',
   entry: './index.js',
@@ -7,12 +7,29 @@ module.exports = {
     path: __dirname + '/app',
     filename: 'bundle.js'
   },
+  // watch: true,
+  watchOptions: {
+    aggregateTimeOut: 100
+  },
+  devtool: 'cheap-module-inline-source-map',
   module: {
     loaders: [
-      {test: /\.js$/, loader: 'babel'},
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        query: {
+          presets: ['latest']/*,
+          plugins: ['transform-runtime']*/
+        },
+        exclude: ['node_modules']
+      },
       {test: /\.html$/, loader: 'raw'}
     ]
   },
+  plugins: [
+    // new webpack.optimize.UglifyJsPlugin()
+  ],
+  
   devServer: {
     host: 'localhost',
     port: '8080',

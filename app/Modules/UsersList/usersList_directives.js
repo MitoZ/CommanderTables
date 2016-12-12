@@ -14,6 +14,6 @@ module.exports = function (angular) {
     };
   }
   
-  angular.module('commanderTablesApp', [])
+  angular.module('commanderTablesApp')
     .directive('usersListDirective', usersListDirective);
 };

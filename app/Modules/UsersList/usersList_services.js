@@ -11,6 +11,6 @@ module.exports = function (angular) {
     };
   }
   
-  angular.module('commanderTablesApp', [])
+  angular.module('commanderTablesApp')
     .factory('usersListModels', usersListModels);
 };

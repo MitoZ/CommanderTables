@@ -10,6 +10,6 @@ module.exports = function (angular) {
     let vm = this;
     vm.users = usersListModels.users;
   }
-  angular.module('commanderTablesApp', [])
+  angular.module('commanderTablesApp')
     .controller('userListController', ['usersListModels', userListController]);
 };
