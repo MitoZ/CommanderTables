@@ -17,14 +17,15 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        query: {
-          presets: ['latest']/*,
-          plugins: ['transform-runtime']*/
-        },
-        exclude: ['node_modules']
+        /*query: {
+          presets: ['latest']/!*,
+          plugins: ['transform-runtime']*!/
+        },*/
+        exclude: /\/node_modules\//
       },
       {test: /\.html$/, loader: 'raw'}
-    ]
+    ],
+    noParse: [/.*angular\.js$/]
   },
   plugins: [
     // new webpack.optimize.UglifyJsPlugin()
