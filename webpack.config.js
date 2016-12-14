@@ -11,7 +11,7 @@ module.exports = {
   watchOptions: {
     aggregateTimeOut: 100
   },
-  devtool: 'cheap-module-inline-source-map',
+  devtool: 'module-inline-source-map',
   module: {
     loaders: [
       {
@@ -28,7 +28,7 @@ module.exports = {
     noParse: /angular.js/
   },
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin()
   ],
   
   devServer: {

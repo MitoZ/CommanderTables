@@ -7,7 +7,7 @@ module.exports = function (angular) {
   
   function usersListDirective() {
     return {
-      restrict: 'E',
+      restrict: 'EA',
       template: require('./usersList_template.html'),
       controller: 'userListController',
       controllerAs: 'vm'
@@ -15,5 +15,5 @@ module.exports = function (angular) {
   }
   
   angular.module('commanderTablesApp')
-    .directive('usersListDirective', usersListDirective);
+    .directive('usersListPlace', usersListDirective);
 };
