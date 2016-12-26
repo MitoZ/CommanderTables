@@ -1,0 +1,36 @@
+//base colors
+@white: rgba(255, 255, 255, 1);
+@black: rgba(0, 0, 0, 1);
+@blue: rgba(51, 122, 183, 1);
+@red: rgba(217, 83, 79, 1);
+@green: rgba(92, 184, 92, 1);
+@yellow: rgba(240, 173, 78, 1);
+
+//relative colors
+
+@gray-darker: lighten(@black, 13.5%);
+@gray-dark: lighten(@black, 20%);
+@gray: lighten(@black, 33.5%);
+@gray-light: lighten(@black, 46.7%);
+@gray-lighter: lighten(@black, 93.5%);
+
+@blue-darker: darken(@black, 20%);
+@blue-dark: darken(@black, 13.5%);
+@blue-light: lighten(@black, 13.5%);
+@blue-lighter: lighten(@black, 20%);
+
+
+@primary: @blue;
+@success: @green;
+@info: @blue-light;
+@warning: @yellow;
+@danger: @red;
+//** Background color for `<body>`.
+@body-bg: @gray-lighter;
+//** Global text color on `<body>`.
+@text-color: @gray-dark;
+//** Global textual link color.
+@link-color: @primary;
+//** Link hover color set via `darken()` function.
+@link-color-hover: darken(@link-color, 15%);
+//** Link hover decoration.

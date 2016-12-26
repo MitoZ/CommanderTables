@@ -2,6 +2,7 @@
 /**
  * Created by dzmitry.barkouski on 08.12.2016.
  **/
+import './usersList.less';
 
 module.exports = function (angular) {
   require('./usersList_directives')(angular);
