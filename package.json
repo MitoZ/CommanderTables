@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "devDependencies": {
     "angular": "^1.5.9",
+    "angular-route": "^1.6.1",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.9",
     "babel-plugin-transform-runtime": "^6.15.0",

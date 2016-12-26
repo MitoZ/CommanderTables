@@ -47,6 +47,12 @@ module.exports = {
   devServer: {
     host: 'localhost',
     port: '8080',
-    contentBase: __dirname + '/app'
+    contentBase: __dirname + '/app',
+    inline: true,
+    compress: true,
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
+    }
   }
 };
