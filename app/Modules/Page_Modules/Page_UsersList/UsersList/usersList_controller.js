@@ -4,7 +4,7 @@
  **/
 import './usersList.less';
 
-module.exports = function (angular) {
+module.exports = function (angular, usersList) {
   require('./usersList_directives')(angular);
   require('./usersList_services')(angular);
   function userListController(usersListModels) {

@@ -6,8 +6,12 @@
   opacity: 0;
 }
 
-
 /// layout parts states
-.h-navMenu-item.is-active{
-  background-color: @blue;
+.header-navMenu-item.is-active{
+  .header-navMenu-item-link{
+    background-color: @blue;
+    &:hover{
+      background-color: @blue-dark;
+    }
+  }
 }

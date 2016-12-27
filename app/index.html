@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="commanderTablesApp">
+<html lang="en" data-ng-app="commanderTablesApp">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,23 +19,32 @@
 <body>
 
 <header class="header">
-  <div class="header-topPart">
-    <p class="header-topPart-appName">Commander Tables</p>
-    <div class="header-menuWr is-hidden">
-      
+  <div class="header-topPart-Wr l-center-Wr">
+    <div class="header-topPart l-center">
+      <p class="header-topPart-appName">Commander Tables</p>
+      <div class="header-menuWr is-hidden">
+        
+      </div>
     </div>
   </div>
-  <menu class="header-navMenu">
-    <li class="header-navMenu-item is-active"><a href="#players" class="header-navMenu-item-link">Список игроков</a></li>
-    <li class="header-navMenu-item"><a href="#tables" class="header-navMenu-item-link">Список столов</a></li>
-  </menu>
+  <div class="header-navMenu-Wr l-center-Wr">
+    <menu class="l-center header-navMenu">
+      <li class="header-navMenu-item is-active"><a href="#" class="header-navMenu-item-link">Список игроков</a></li>
+      <li class="header-navMenu-item"><a href="#/tables" class="header-navMenu-item-link">Список столов</a></li>
+    </menu>
+  </div>
 </header>
 
-<div class="content">
-  
+<div class="l-center-Wr content-Wr" scrollbar="">
+  <div class="content l-center" data-ng-view>
+    
+  </div>
 </div>
-<footer class="footer">
-  <span class="footer-copyright">© MitoZ 2017</span>
+
+<footer class="l-center-Wr footer-Wr">
+  <div class="footer l-center">
+    <span class="footer-copyright">© MitoZ 2017</span>
+  </div>
 </footer>
 <script type="text/javascript" src="index.js"></script>
 </body>

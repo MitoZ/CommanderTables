@@ -12,7 +12,7 @@ module.exports = {
   },
   watch: true,
   watchOptions: {
-    aggregateTimeOut: 100
+    aggregateTimeOut: 50
   },
   devtool: 'module-inline-source-map',
   module: {
@@ -38,6 +38,7 @@ module.exports = {
   },
   plugins: [
     // new webpack.optimize.UglifyJsPlugin()
+    new webpack.OldWatchingPlugin(),
     new ExtractTextPlugin('[name].css', {allChunks: true})
   ],
   postcss: function () {
