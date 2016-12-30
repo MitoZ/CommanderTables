@@ -5,12 +5,12 @@
 
 module.exports = function (angular) {
   
-  function usersListModels() {
+  function usersListModels(localStorageService) {
     return /*usersList*/{
       users: []
     };
   }
   
   angular.module('commanderTablesApp')
-    .factory('usersListModels', usersListModels);
+    .factory('usersListModels', ['localStorageService', usersListModels]);
 };

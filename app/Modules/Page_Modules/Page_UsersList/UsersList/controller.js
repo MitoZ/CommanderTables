@@ -2,15 +2,18 @@
 /**
  * Created by dzmitry.barkouski on 08.12.2016.
  **/
-import './usersList.less';
+import './styles.less';
+import directives from './directives';
+import services from './directives';
 
-module.exports = function (angular, usersList) {
-  require('./usersList_directives')(angular);
-  require('./usersList_services')(angular);
+module.exports = function (angular) {
   const userListController = function (usersListModels) {
     let vm = this;
     vm.users = usersListModels.users;
   };
   angular.module('commanderTablesApp')
     .controller('userListController', ['usersListModels', userListController]);
+  
+  directives(angular);
+  services(angular);
 };

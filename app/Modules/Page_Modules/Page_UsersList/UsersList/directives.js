@@ -8,7 +8,7 @@ module.exports = function (angular) {
   function usersListDirective() {
     return {
       restrict: 'EA',
-      template: require('./usersList_template.html'),
+      template: require('./template.html'),
       controller: 'userListController',
       controllerAs: 'vm'
     };
