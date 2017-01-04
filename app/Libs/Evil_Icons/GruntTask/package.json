@@ -1,0 +1,10 @@
+{
+  "name": "getSVGSprite",
+  "version": "0.0.1",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-svg2string": "^0.2.1",
+    "grunt-svgstore": "^1.0.0"
+  }
+}

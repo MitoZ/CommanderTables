@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 /**
  * Created by dzmitry.barkouski on 30.12.2016.
  */
 
 module.exports = function (angular) {
-  let LSService = function ($localForage) {
-    let readyPromise = new Promise();
+  let LSService = function ($localForage, $location) {
+    // let readyPromise = new Promise();
     let LSService_instance = {
-      readyPromise: readyPromise,
+      readyPromise: new Promise(() => {}),
       loadData: function (dataPage, tryCounter) {
         let self = this;
         dataPage = dataPage || 'defaultPage';
@@ -43,10 +43,10 @@ module.exports = function (angular) {
         return;
       }
     };
-  
+    LSService_instance.loadData($location.path());
     return LSService_instance;
   };
   angular
     .module('commanderTablesApp')
-    .factory('localStorageService', ['$localForage', LSService])
+    .factory('localStorageService', ['$localForage', '$location', LSService]);
 };
