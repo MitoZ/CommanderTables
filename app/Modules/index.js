@@ -27,7 +27,7 @@ import ngMaterial from 'angular-material';
       '$localForageProvider',
       '$mdIconProvider',
       function ($stateProvider, $urlRouterProvider, $locationProvider, $localForageProvider, $mdIconProvider) {
-        $mdIconProvider.iconSet('sprite', './Libs/Evil_Icons/svg_sprite/sprite.svg');
+        // $mdIconProvider.iconSet('sprite', './Libs/Evil_Icons/svg_sprite/sprite.svg');
         $localForageProvider.config({
           name: 'CT'
         });
