@@ -31,7 +31,7 @@ import ngMaterial from 'angular-material';
         $localForageProvider.config({
           name: 'CT'
         });
-        $locationProvider.hashPrefix('');
+        $locationProvider.html5Mode(true);
         
         $urlRouterProvider.otherwise('/');
         
