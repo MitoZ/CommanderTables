@@ -29,8 +29,7 @@
     "angularfire": "^2.2.0",
     "babel-runtime": "^6.20.0",
     "base64-inline-loader": "0.0.2",
-    "firebase": "^3.6.4",
-    "webpack-svgstore-plugin": "^3.0.6"
+    "firebase": "^3.6.4"
   },
   "jshintConfig": {
     "bitwise": true,

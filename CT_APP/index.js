@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("'use strict';\n/**\r\n * Created by dzmitry.barkouski on 08.12.2016.\r\n **/\n\n__webpack_require__(1);\n\nvar _angular = __webpack_require__(2);\n\nvar _angular2 = _interopRequireDefault(_angular);\n\nvar _angularLocalForage = __webpack_require__(4);\n\nvar _angularLocalForage2 = _interopRequireDefault(_angularLocalForage);\n\nvar _angularUiRouter = __webpack_require__(6);\n\nvar _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);\n\n__webpack_require__(7);\n\n__webpack_require__(8);\n\n__webpack_require__(10);\n\nvar _angularMaterial = __webpack_require__(12);\n\nvar _angularMaterial2 = _interopRequireDefault(_angularMaterial);\n\n__webpack_require__(14);\n\nvar _angularfire = __webpack_require__(20);\n\nvar _angularfire2 = _interopRequireDefault(_angularfire);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n(function () {\n\n  _angular2.default.module('commanderTablesApp', [_angularLocalForage2.default, _angularUiRouter2.default, _angularMaterial2.default, _angularfire2.default]);\n\n  // require('./Pages/UsersList/controller')(angular);\n  // require('./Pages/Tables/controller')(angular);\n  // require('./Tools/localStorageService')(angular);\n\n  _angular2.default.module('commanderTablesApp').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$localForageProvider', '$mdIconProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $localForageProvider, $mdIconProvider) {\n    // $mdIconProvider.iconSet('sprite', './Libs/Evil_Icons/svg_sprite/sprite.svg');\n    $localForageProvider.config({\n      name: 'CT'\n    });\n    $locationProvider.html5Mode(true);\n\n    $urlRouterProvider.otherwise('/');\n\n    // $stateProvider;\n    // $routeProvider\n    //   .when('/', {\n    //     template: require('./Pages/UsersList/template.html'),\n    //     controller: 'page-usersList-controller'\n    //   })\n    //   .when('/tables', {\n    //     template: require('./Pages/Tables/template.html'),\n    //     controller: 'page-tablesList-controller'\n    //   })\n    //   .otherwise({\n    //     redirectTo: '/'\n    //   });\n  }])\n  /*.run(['localStorageService', function (localStorageService) {\r\n    \r\n  }])*/;\n})();\n\n//////////////////\n// WEBPACK FOOTER\n// ./Modules/index.js\n// module id = 0\n// module chunks = 0\n//# sourceURL=webpack:///./Modules/index.js?");
+	eval("'use strict';\n/**\r\n * Created by dzmitry.barkouski on 08.12.2016.\r\n **/\n\n__webpack_require__(1);\n\nvar _angular = __webpack_require__(2);\n\nvar _angular2 = _interopRequireDefault(_angular);\n\nvar _angularLocalForage = __webpack_require__(4);\n\nvar _angularLocalForage2 = _interopRequireDefault(_angularLocalForage);\n\nvar _angularUiRouter = __webpack_require__(6);\n\nvar _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);\n\n__webpack_require__(7);\n\n__webpack_require__(8);\n\n__webpack_require__(10);\n\nvar _angularMaterial = __webpack_require__(12);\n\nvar _angularMaterial2 = _interopRequireDefault(_angularMaterial);\n\n__webpack_require__(14);\n\nvar _angularfire = __webpack_require__(20);\n\nvar _angularfire2 = _interopRequireDefault(_angularfire);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n(function () {\n\n  _angular2.default.module('commanderTablesApp', [_angularLocalForage2.default, _angularUiRouter2.default, _angularMaterial2.default, _angularfire2.default]);\n\n  // require('./Pages/UsersList/controller')(angular);\n  // require('./Pages/Tables/controller')(angular);\n  // require('./Tools/localStorageService')(angular);\n\n  _angular2.default.module('commanderTablesApp').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$localForageProvider', '$mdIconProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $localForageProvider, $mdIconProvider) {\n    // $mdIconProvider.iconSet('sprite', './Libs/Evil_Icons/svg_sprite/sprite.svg');\n    $localForageProvider.config({\n      name: 'CT'\n    });\n    $locationProvider.html5Mode(true);\n\n    $urlRouterProvider.otherwise('/');\n\n    // $stateProvider;\n    // $routeProvider\n    //   .when('/', {\n    //     template: require('./Pages/UsersList/template.html'),\n    //     controller: 'page-usersList-controller'\n    //   })\n    //   .when('/tables', {\n    //     template: require('./Pages/Tables/template.html'),\n    //     controller: 'page-tablesList-controller'\n    //   })\n    //   .otherwise({\n    //     redirectTo: '/'\n    //   });\n  }])\n  /*.run(['localStorageService', function (localStorageService) {\r\n    \r\n  }])*/;\n})();\n\n//////////////////\n// WEBPACK FOOTER\n// ./Modules/app.js\n// module id = 0\n// module chunks = 0\n//# sourceURL=webpack:///./Modules/app.js?");
 
 /***/ },
 /* 1 */
@@ -56,7 +56,7 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("__webpack_require__(3);\nmodule.exports = angular;\n\n\n//////////////////\n// WEBPACK FOOTER\n// ../~/angular/index.js\n// module id = 2\n// module chunks = 0\n//# sourceURL=webpack:///../~/angular/index.js?");
+	eval("__webpack_require__(3);\nmodule.exports = angular;\n\n\n//////////////////\n// WEBPACK FOOTER\n// ../~/angular/app.js\n// module id = 2\n// module chunks = 0\n//# sourceURL=webpack:///../~/angular/app.js?");
 
 /***/ },
 /* 3 */
@@ -92,7 +92,7 @@
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("__webpack_require__(9);\nmodule.exports = 'ngAria';\n\n\n//////////////////\n// WEBPACK FOOTER\n// ../~/angular-aria/index.js\n// module id = 8\n// module chunks = 0\n//# sourceURL=webpack:///../~/angular-aria/index.js?");
+	eval("__webpack_require__(9);\nmodule.exports = 'ngAria';\n\n\n//////////////////\n// WEBPACK FOOTER\n// ../~/angular-aria/app.js\n// module id = 8\n// module chunks = 0\n//# sourceURL=webpack:///../~/angular-aria/app.js?");
 
 /***/ },
 /* 9 */
@@ -104,7 +104,7 @@
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("__webpack_require__(11);\nmodule.exports = 'ngAnimate';\n\n\n//////////////////\n// WEBPACK FOOTER\n// ../~/angular-animate/index.js\n// module id = 10\n// module chunks = 0\n//# sourceURL=webpack:///../~/angular-animate/index.js?");
+	eval("__webpack_require__(11);\nmodule.exports = 'ngAnimate';\n\n\n//////////////////\n// WEBPACK FOOTER\n// ../~/angular-animate/app.js\n// module id = 10\n// module chunks = 0\n//# sourceURL=webpack:///../~/angular-animate/app.js?");
 
 /***/ },
 /* 11 */
@@ -116,7 +116,7 @@
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("// Should already be required, here for clarity\n__webpack_require__(2);\n\n// Load Angular and dependent libs\n__webpack_require__(10);\n__webpack_require__(8);\n\n// Now load Angular Material\n__webpack_require__(13);\n\n// Export namespace\nmodule.exports = 'ngMaterial';\n\n\n//////////////////\n// WEBPACK FOOTER\n// ../~/angular-material/index.js\n// module id = 12\n// module chunks = 0\n//# sourceURL=webpack:///../~/angular-material/index.js?");
+	eval("// Should already be required, here for clarity\n__webpack_require__(2);\n\n// Load Angular and dependent libs\n__webpack_require__(10);\n__webpack_require__(8);\n\n// Now load Angular Material\n__webpack_require__(13);\n\n// Export namespace\nmodule.exports = 'ngMaterial';\n\n\n//////////////////\n// WEBPACK FOOTER\n// ../~/angular-material/app.js\n// module id = 12\n// module chunks = 0\n//# sourceURL=webpack:///../~/angular-material/app.js?");
 
 /***/ },
 /* 13 */
@@ -164,7 +164,7 @@
 /* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("// Make sure dependencies are loaded on the window\n__webpack_require__(2);\n__webpack_require__(14);\n\n// Load the Angular module which uses window.angular and window.Firebase\n__webpack_require__(21);\n\n// Export the module name from the Angular module\nmodule.exports = 'firebase';\n\n\n//////////////////\n// WEBPACK FOOTER\n// ../~/angularfire/index.js\n// module id = 20\n// module chunks = 0\n//# sourceURL=webpack:///../~/angularfire/index.js?");
+	eval("// Make sure dependencies are loaded on the window\n__webpack_require__(2);\n__webpack_require__(14);\n\n// Load the Angular module which uses window.angular and window.Firebase\n__webpack_require__(21);\n\n// Export the module name from the Angular module\nmodule.exports = 'firebase';\n\n\n//////////////////\n// WEBPACK FOOTER\n// ../~/angularfire/app.js\n// module id = 20\n// module chunks = 0\n//# sourceURL=webpack:///../~/angularfire/app.js?");
 
 /***/ },
 /* 21 */

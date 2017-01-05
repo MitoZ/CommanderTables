@@ -39,10 +39,6 @@ import './Layout/layout.less';
   
   angular.module('commanderTablesApp', [LocalForageModule, uiRouter, ngMaterial, 'firebase']);
   
-  // require('./Pages/UsersList/controller')(angular);
-  // require('./Pages/Tables/controller')(angular);
-  // require('./Tools/localStorageService')(angular);
-  
   angular.module('commanderTablesApp')
     .config([
       '$stateProvider',

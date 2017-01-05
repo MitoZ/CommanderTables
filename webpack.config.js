@@ -2,12 +2,12 @@
 const webpack = require('webpack');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
-  context: __dirname + '/app',
+  context: __dirname + '/CT_APP',
   entry: {
-    index: './Modules/index.js'
+    index: './App/application.js'
   },
   output: {
-    path: __dirname + '/app',
+    path: __dirname + '/CT_APP',
     filename: '[name].js'
   },
   watch: true,
@@ -65,7 +65,7 @@ module.exports = {
   devServer: {
     host: 'localhost',
     port: '8080',
-    contentBase: __dirname + '/app',
+    contentBase: __dirname + '/CT_APP',
     historyApiFallback: true,
     inline: true,
     compress: true,
