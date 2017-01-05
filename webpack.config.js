@@ -1,7 +1,6 @@
 'use strict';
 const webpack = require('webpack');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
-let SvgStore = require('webpack-svgstore-plugin');
 module.exports = {
   context: __dirname + '/app',
   entry: {
@@ -50,15 +49,7 @@ module.exports = {
   plugins: [
     // new webpack.optimize.UglifyJsPlugin()
     new webpack.OldWatchingPlugin(),
-    new ExtractTextPlugin('[name].css', {allChunks: true}),
-    new SvgStore.Options({
-      // svgo options
-      /*svgoOptions: {
-        plugins: [
-          { removeTitle: true }
-        ]
-      }*/
-    })
+    new ExtractTextPlugin('[name].css', {allChunks: true})
   ],
   resolve: {
     modulesDirectories: ['node_modules'],
