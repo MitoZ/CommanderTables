@@ -75,9 +75,7 @@ module.exports = {
     host: 'localhost',
     port: '8080',
     contentBase: __dirname + '/app',
-    historyApiFallback: true/*{
-      index: __dirname + '/app/index.html'
-    }*/,
+    historyApiFallback: true,
     inline: true,
     compress: true,
     watchOptions: {
