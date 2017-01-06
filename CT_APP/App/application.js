@@ -6,7 +6,6 @@
 import angular from 'angular';
 
 //import angular modules
-import LocalForageModule from 'angular-localForage';
 import uiRouter from 'angular-ui-router';
 
 //import firebase database modules + angularFire
@@ -28,9 +27,12 @@ import './Layout/layout.less';
 //import application parts
 import config from './application_config';
 
+//application dependencies
+import dataBaseTools from './DataBaseTools';
+
 //start application
 (function () {
-  //add global var for firebase + add firebase settings
+  //add global var for firebase + init settings
   window.firebase = firebase;
   firebase.initializeApp({
     apiKey: 'AIzaSyAuf8l0fpJfMNbmyP7oSL1dSkITbdrLz-A',
@@ -40,7 +42,15 @@ import config from './application_config';
     messagingSenderId: '160825685933'
   });
   
-  angular.module('commanderTablesApp', [LocalForageModule, uiRouter, ngMaterial, 'firebase']);
+  let dependencies = [
+    uiRouter,
+    ngMaterial,
+    'firebase',
+  
+    dataBaseTools
+  ];
+  
+  angular.module('commanderTablesApp', dependencies);
   
   angular.module('commanderTablesApp')
     .config(config)
