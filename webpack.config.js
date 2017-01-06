@@ -14,17 +14,18 @@ module.exports = {
   watchOptions: {
     aggregateTimeOut: 50
   },
-  devtool: 'eval'/*'module-inline-source-map'*/,
+  // devtool: 'eval',
+  devtool: 'module-inline-source-map',
   module: {
     loaders: [
       {
         test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
           presets: ['latest'],
           plugins: ['transform-runtime']
-        },
-        exclude: /(node_modules|bower_components)/
+        }
       },
       {
         test: /\.html$/,

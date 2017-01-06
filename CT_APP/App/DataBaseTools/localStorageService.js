@@ -13,7 +13,7 @@ let DI = [
   '$location'
 ];
 
-class localStorageService {
+class LocalStorageService {
   constructor ($localForage, $location) {
     this.localForage = $localForage;
     this.readyPromise = new Promise(() => {});
@@ -48,10 +48,27 @@ class localStorageService {
       return self.readyPromise;
     }
   }
+  
+  get () {
+    
+  }
+  
+  static localStorageServiceFactory($localForage, $location){
+    return new LocalStorageService($localForage, $location);
+  }
 }
 
-localStorageService.$inject = DI;
+LocalStorageService.localStorageServiceFactory.$inject = DI;
 
 export default angular.module('dataBaseTools.localStorage', dependencies)
-  .service('localStorageService', localStorageService)
+  .config(config)
+  .factory('localStorageService', LocalStorageService.localStorageServiceFactory)
   .name;
+
+config.$inject = ['$localForageProvider'];
+
+function config($localForageProvider) {
+  $localForageProvider.config({
+    name: 'CT'
+  });
+}

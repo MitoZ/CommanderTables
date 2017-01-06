@@ -7,7 +7,6 @@ config.$inject = [
   '$stateProvider',
   '$urlRouterProvider',
   '$locationProvider',
-  '$localForageProvider',
   '$mdThemingProvider',
   // '$mdIconProvider',
 ];
@@ -15,7 +14,6 @@ config.$inject = [
 export default function config($stateProvider,
   $urlRouterProvider,
   $locationProvider,
-  $localForageProvider,
   $mdThemingProvider/*,
   $mdIconProvider*/) {
   // $mdIconProvider.iconSet('sprite', './Libs/Evil_Icons/svg_sprite/sprite.svg');
@@ -23,9 +21,6 @@ export default function config($stateProvider,
     .primaryPalette('blue-grey')
     .accentPalette('orange');
   
-  $localForageProvider.config({
-    name: 'CT'
-  });
   $locationProvider.html5Mode(true);
   
   $urlRouterProvider.otherwise('/');

@@ -53,8 +53,9 @@ import dataBaseTools from './DataBaseTools';
   angular.module('commanderTablesApp', dependencies);
   
   angular.module('commanderTablesApp')
-    .config(config)
-    /*.run(['$firebaseAuth', function ($firebaseAuth) {
+    .config(config)/*
+    .run(['localStorageService', function (localStorageService) {
+      localStorageService.get();
       // let ref = firebase.database().ref();
       // let auth = $firebaseAuth();
       /!*auth.$signInWithPopup('facebook').then(function(firebaseUser) {
