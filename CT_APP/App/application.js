@@ -25,6 +25,9 @@ import ngMaterial from 'angular-material';
 //import custom base styles
 import './Layout/layout.less';
 
+//import application parts
+import config from './application_config';
+
 //start application
 (function () {
   //add global var for firebase + add firebase settings
@@ -40,45 +43,16 @@ import './Layout/layout.less';
   angular.module('commanderTablesApp', [LocalForageModule, uiRouter, ngMaterial, 'firebase']);
   
   angular.module('commanderTablesApp')
-    .config([
-      '$stateProvider',
-      '$urlRouterProvider',
-      '$locationProvider',
-      '$localForageProvider',
-      // '$mdIconProvider',
-      function ($stateProvider, $urlRouterProvider, $locationProvider, $localForageProvider/*, $mdIconProvider*/) {
-        // $mdIconProvider.iconSet('sprite', './Libs/Evil_Icons/svg_sprite/sprite.svg');
-        $localForageProvider.config({
-          name: 'CT'
-        });
-        $locationProvider.html5Mode(true);
-        
-        $urlRouterProvider.otherwise('/');
-        
-        // $stateProvider;
-        // $routeProvider
-        //   .when('/', {
-        //     template: require('./Pages/UsersList/template.html'),
-        //     controller: 'page-usersList-controller'
-        //   })
-        //   .when('/tables', {
-        //     template: require('./Pages/Tables/template.html'),
-        //     controller: 'page-tablesList-controller'
-        //   })
-        //   .otherwise({
-        //     redirectTo: '/'
-        //   });
-      }
-    ])
-    .run(['$firebaseAuth', function ($firebaseAuth) {
+    .config(config)
+    /*.run(['$firebaseAuth', function ($firebaseAuth) {
       // let ref = firebase.database().ref();
       // let auth = $firebaseAuth();
-      /*auth.$signInWithPopup('facebook').then(function(firebaseUser) {
+      /!*auth.$signInWithPopup('facebook').then(function(firebaseUser) {
         console.log('Signed in as:', firebaseUser.uid);
         console.log('USER - ', firebaseUser);
       }).catch(function(error) {
         console.log('Authentication failed:', error);
-      });*/
+      });*!/
       // console.log(ref); //TODO: Delete this before checkIN
-    }]);
+    }])*/;
 })();

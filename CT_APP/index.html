@@ -1,41 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" data-ng-app="commanderTablesApp">
 <head>
-  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  
+  <title>Commander tables</title>
+  <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="author" content="">
+  
   <!--<link rel="icon" href="../../favicon.ico">-->
+  <link rel="apple-touch-icon" sizes="57x57" href="Images/fav/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="Images/fav/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="Images/fav/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="Images/fav/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="Images/fav/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="Images/fav/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="Images/fav/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="Images/fav/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="Images/fav/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="Images/fav/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="Images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="Images/fav/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Images/fav/favicon-16x16.png">
+  <link rel="manifest" href="Images/fav/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="Images/fav/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <!--fallback-->
+  <link rel="shortcut icon" href="Images/fav/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="Images/fav/favicon.ico" type="image/x-icon">
+  
   <link rel="stylesheet" type="text/css" href="index.css" />
-  <title>Commander tables</title>
   <script type="text/javascript" src="Libs/Evil_Icons/svg_sprite/sprite.js"></script>
+  
   <base href="/" />
 </head>
 
-<body>
+<body layout="column" ng-cloak>
 <div id="svgSpritePlace" style="width:0;height:0;visibility:hidden;position:absolute;z-index:-1;"></div>
 <script type="text/javascript">
   document.getElementById('svgSpritePlace').innerHTML = SVG_SPRITE;
 </script>
-<md-toolbar>
-  <div class="md-toolbar-tools">
-    <md-button aria-label="Go Back">
-      Go Back
-    </md-button>
-    <h2>
-      <span>Toolbar with Standard Buttons</span>
-    </h2>
-    <span flex></span>
-    <md-button class="md-raised" aria-label="Learn More">
-      Learn More
-    </md-button>
-    <md-button class="md-fab md-mini" aria-label="Favorite">
-      <md-icon><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ico-ei-like"></use></svg></md-icon>
-    </md-button>
-  </div>
-</md-toolbar>
+<header>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 class="" layout="row" layout-align="start center">
+        <md-icon><img src="Images/CT_icon_144x210.png" alt="Commander Tables" /></md-icon>
+        <span>Commander Tables</span>
+      </h2>
+      <span flex></span>
+      <md-button class="md-raised" aria-label="Learn More">
+        Learn More
+      </md-button>
+      <md-button class="md-fab md-mini" aria-label="Favorite">
+        <md-icon><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ico-ei-like"></use></svg></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+</header>
 
 <script type="text/javascript" src="index.js"></script>
 </body>
