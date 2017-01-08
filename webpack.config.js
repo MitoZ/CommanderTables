@@ -15,7 +15,7 @@ module.exports = {
     aggregateTimeOut: 50
   },
   // devtool: 'eval',
-  devtool: 'module-inline-source-map',
+  devtool: 'source-map',
   module: {
     loaders: [
       {
@@ -48,7 +48,7 @@ module.exports = {
     noParse: /angular.js/
   },
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin()
+    // new webpack.optimize.UglifyJsPlugin(),
     new webpack.OldWatchingPlugin(),
     new ExtractTextPlugin('[name].css', {allChunks: true})
   ],

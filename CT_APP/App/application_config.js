@@ -23,7 +23,7 @@ export default function config($stateProvider,
   
   $locationProvider.html5Mode(true);
   
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
   
   // $stateProvider;
   // $routeProvider

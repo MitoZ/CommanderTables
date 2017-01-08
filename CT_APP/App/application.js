@@ -29,6 +29,7 @@ import config from './application_config';
 
 //application dependencies
 import dataBaseTools from './DataBaseTools';
+import loginPageModule from './Pages/Login';
 
 //start application
 (function () {
@@ -47,7 +48,8 @@ import dataBaseTools from './DataBaseTools';
     ngMaterial,
     'firebase',
   
-    dataBaseTools
+    dataBaseTools,
+    loginPageModule
   ];
   
   angular.module('commanderTablesApp', dependencies);
