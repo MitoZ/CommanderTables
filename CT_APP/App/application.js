@@ -7,6 +7,7 @@ import angular from 'angular';
 
 //import angular modules
 import uiRouter from 'angular-ui-router';
+import ngMessages from 'angular-messages';
 
 //import firebase database modules + angularFire
 import firebase from 'firebase/app';
@@ -45,6 +46,7 @@ import loginPageModule from './Pages/Login';
   
   let dependencies = [
     uiRouter,
+    ngMessages,
     ngMaterial,
     'firebase',
   

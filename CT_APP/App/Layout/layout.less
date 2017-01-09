@@ -47,10 +47,6 @@ button, a{
   }
 }
 
-ul, menu{
-  margin: 0;
-  list-style: none;
-}
 p{
   margin: 0;
 }
@@ -150,6 +146,12 @@ p{
   font-size: @font-size-small;
   color: @gray-light;
 }*/
+
+ul, menu{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 svg{
   position: relative;
   height: 100%;
@@ -162,3 +164,5 @@ img{
   max-height: 100%;
   max-width: 100%;
 }
+
+@import "_buttons";

@@ -6,6 +6,81 @@
 */
 @import '../../Layout/_colors';
 
+.login-Wr{
+  padding: 50px;
+}
+
 .login-contentWr{
-  width: 680px;
+  //width: 680px;
+  min-width: 320px;
+  md-input-container{
+    margin: 5px 8px;
+  }
+}
+.login-alt-wr{
+  position: relative;
+  margin: 5px 8px 5px 8px;
+}
+.login-alt-title{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+  color: fade(@black, 50%);
+  &:after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: @border-color;
+    top: 50%;
+    margin-top: -1px;
+    z-index: 1;
+  }
+}
+.login-alt-title-text{
+  position: relative;
+  display: block;
+  text-align: center;
+  padding: 5px;
+  background-color: @white;
+  z-index: 2;
+}
+.login-alt-socials-item{
+  min-width: 50px;
+  flex-grow: 0;
+}
+.login-alt-anon-btnWr{
+  align-self: flex-end;
+  min-width: 270px;
+}
+.login-alt-anon-icon{
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+}
+.login-alt-anon-btn{
+  margin-right: 0;
+  margin-left: 0;
+  text-transform: none;
+  color: fade(@black, 50%);
+  min-width: 50px;
+  max-width: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 0;
+  padding-right: 0;
+  transition: max-width .4s;
+  &:hover{
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 100%;
+    .login-alt-anon-icon{
+      margin-left: 10px;
+      margin-right: 0;
+    }
+  }
 }

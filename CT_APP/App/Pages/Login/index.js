@@ -8,7 +8,7 @@
 import angular from 'angular';
 import config from './config';
 import controller from './controller';
-import './styles.less'
+import './styles.less';
 
 export default angular.module('loginPageModule', [])
   .controller('loginPageController', controller)
