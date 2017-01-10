@@ -10,7 +10,13 @@ import config from './config';
 import controller from './controller';
 import './styles.less';
 
-export default angular.module('loginPageModule', [])
+import recoveryPage from './Recovery';
+
+let dependencies = [
+  recoveryPage
+];
+
+export default angular.module('loginPageModule', dependencies)
   .controller('loginPageController', controller)
   .config(config)
   .name;

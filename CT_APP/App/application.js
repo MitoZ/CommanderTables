@@ -57,17 +57,8 @@ import loginPageModule from './Pages/Login';
   angular.module('commanderTablesApp', dependencies);
   
   angular.module('commanderTablesApp')
-    .config(config)/*
-    .run(['localStorageService', function (localStorageService) {
-      localStorageService.get();
-      // let ref = firebase.database().ref();
-      // let auth = $firebaseAuth();
-      /!*auth.$signInWithPopup('facebook').then(function(firebaseUser) {
-        console.log('Signed in as:', firebaseUser.uid);
-        console.log('USER - ', firebaseUser);
-      }).catch(function(error) {
-        console.log('Authentication failed:', error);
-      });*!/
-      // console.log(ref); //TODO: Delete this before checkIN
-    }])*/;
+    .config(config)
+    .run(['$state',function ($state) {
+      console.log('app is running, states - ', $state.get()); //TODO: Delete this before checkIN
+    }]);
 })();

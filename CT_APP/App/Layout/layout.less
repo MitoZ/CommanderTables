@@ -1,6 +1,6 @@
-/*
 @import "_reset_normilize";
 @import "_colors";
+
 ///////////////////////////////////////
 @font-size-base: 14px;
 @font-size-large: ceil((@font-size-base * 1.25)); // ~18px
@@ -47,106 +47,9 @@ button, a{
   }
 }
 
-p{
+p, h1, h2, h3, h4, h5, h6{
   margin: 0;
 }
-.l-center-Wr{
-  position: relative;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-.l-center{
-  width: 1280px;
-  box-sizing: border-box;
-  padding: 0 50px;
-}
-/////////////////////////////////////
-// tools styles
-@import "_states";
-
-/////////////////////////////////////
-// layout styles
-.header{
-  position: relative;
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-}
-.header-topPart-Wr{
-  width: 100%;
-  background-color: @blue-darker;
-}
-.header-topPart{
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 50px;
-  color: @white;
-  box-sizing: border-box;
-}
-.header-topPart-appName{
-  font-size: @h3;
-}
-.header-navMenu-Wr{
-  width: 100%;
-  background-color: @gray-lighter;
-}
-.header-navMenu{
-  position: relative;
-  display: flex;
-  padding: 10px 70px 7px;
-  box-sizing: border-box;
-}
-.header-navMenu-item{
-  position: relative;
-  display: block;
-  margin-right: 7px;
-  .header-navMenu-item-link{
-    position: relative;
-    display: block;
-    padding: 5px 10px;
-    background-color: @gray-light-plus;
-    transition: background-color .3s;
-    box-shadow: 2px 1px 0 darken(@gray-light-plus, 10%);
-    &, &:hover{
-      color: @white;
-      text-decoration: none;
-    }
-    &:hover{
-      background-color: @gray;
-    }
-  }
-}
-.content-Wr{
-  margin: 10px 0;
-}
-.content{
-  position: relative;
-  display: block;
-  min-height: 100%;
-  box-sizing: border-box;
-  padding-bottom: 40px;
-}
-
-.footer-Wr{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: @gray-lighter;
-  border-top: 1px solid @gray-light-plus;
-}
-.footer{
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-  height: 40px;
-  box-sizing: border-box;
-  font-size: @font-size-small;
-  color: @gray-light;
-}*/
-
 ul, menu{
   margin: 0;
   padding: 0;
@@ -164,5 +67,13 @@ img{
   max-height: 100%;
   max-width: 100%;
 }
+
+/////////////////////////////////////
+// tools styles
+@import "_states";
+
+/////////////////////////////////////
+// layout styles
+
 
 @import "_buttons";

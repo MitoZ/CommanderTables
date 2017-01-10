@@ -10,8 +10,8 @@ let dependencies = [
 export default class LoginPageController {
   constructor($http) {
     let vm = this;
-    vm.login = {};
-    vm.reg = {};
+    vm.loginModel = {};
+    vm.regModel = {};
     vm.http = $http;
     // vm.login = function () {
     //   console.log('fake'); //TODO: Delete this before checkIN

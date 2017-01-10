@@ -14,8 +14,8 @@ module.exports = {
   watchOptions: {
     aggregateTimeOut: 50
   },
-  // devtool: 'eval',
-  devtool: 'source-map',
+  devtool: 'eval',
+  // devtool: 'source-map',
   module: {
     loaders: [
       {
