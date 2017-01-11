@@ -3,7 +3,7 @@
  * Created by dzmitry.barkouski on 06.01.2017.
  */
 import angular from 'angular';
-import localStorageService from './localStorageService';
+import localStorageService from './LocalStorageService';
 
 let dependencies = [localStorageService];
 

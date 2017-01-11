@@ -9,14 +9,6 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngMessages from 'angular-messages';
 
-//import firebase database modules + angularFire
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
-import 'firebase/storage';
-import 'firebase/messaging';
-import 'angularfire';
-
 //import material ui for angular
 import 'angular-material/angular-material.css';
 import 'angular-aria';
@@ -31,34 +23,68 @@ import config from './application_config';
 //application dependencies
 import dataBaseTools from './DataBaseTools';
 import loginPageModule from './Pages/Login';
+import authService from './Modules/AuthService';
 
 //start application
 (function () {
-  //add global var for firebase + init settings
-  window.firebase = firebase;
-  firebase.initializeApp({
-    apiKey: 'AIzaSyAuf8l0fpJfMNbmyP7oSL1dSkITbdrLz-A',
-    authDomain: 'commandertables.firebaseapp.com',
-    databaseURL: 'https://commandertables.firebaseio.com',
-    storageBucket: 'commandertables.appspot.com',
-    messagingSenderId: '160825685933'
-  });
   
   let dependencies = [
     uiRouter,
     ngMessages,
     ngMaterial,
-    'firebase',
-  
+    
     dataBaseTools,
-    loginPageModule
+    loginPageModule,
+    authService
   ];
   
   angular.module('commanderTablesApp', dependencies);
   
   angular.module('commanderTablesApp')
     .config(config)
-    .run(['$state',function ($state) {
-      console.log('app is running, states - ', $state.get()); //TODO: Delete this before checkIN
-    }]);
+    .run([
+      '$rootScope',
+      '$location',
+      function ($rootScope, $location) {
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+          // requires authorization?
+          if (!toState.unauthorized) {
+            toState.resolve = toState.resolve || {};
+            if (!toState.resolve.authorizationResolver) {
+              // inject resolver
+              toState.resolve.authorizationResolver.$inject = ['authService', 'localStorageReady'];
+              toState.resolve.authorizationResolver = function (authService, localStorageReady) {
+                return authService.authorize();
+              };
+            }
+          }
+        });
+        // $rootScope.$on('$stateChangeSuccess', function (...rest) {
+          // requires authorization?
+          // console.log(rest); //TODO: Delete this before checkIN
+          // if (!to.unauthorized) {
+          //   to.resolve = to.resolve || {};
+          //   if (!to.resolve.authorizationResolver) {
+          //     // inject resolver
+          //     to.resolve.authorizationResolver = [
+          //       'authService',
+          //       function (authService) {
+          //         return authService.authorize();
+          //       }
+          //     ];
+          //   }
+          // }
+        // });
+        
+        $rootScope.$on('$stateChangeError', function (evt, toState, toParams, fromState, fromParams, error) {
+          // if (error instanceof AuthorizationError) {
+          //   debugger;
+            // redirect to login with original path we'll be returning back to
+            // $location
+            //   .path('/login')
+            //   .search('returnTo', toState.originalPath);
+          // }
+        });
+      }
+    ]);
 })();

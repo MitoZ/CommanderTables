@@ -11,7 +11,8 @@ config.$inject = [
   // '$mdIconProvider',
 ];
 
-export default function config($stateProvider,
+export default function config(
+  $stateProvider,
   $urlRouterProvider,
   $locationProvider,
   $mdThemingProvider/*,

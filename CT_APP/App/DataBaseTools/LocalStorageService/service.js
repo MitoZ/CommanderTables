@@ -1,26 +1,16 @@
 'use strict';
 /**
- * Created by dzmitry.barkouski on 06.01.2017.
+ * Created by dzmitry.barkouski on 11.01.2017.
  */
 
-import angular from 'angular';
-import localForage from 'angular-localForage';
-
-let dependencies = [localForage];
-
-let DI = [
-  '$localForage',
-  '$location'
-];
-
-class LocalStorageService {
-  constructor ($localForage, $location) {
+export default class LocalStorageService {
+  constructor($localForage, $location, localStorageReady) {
     this.localForage = $localForage;
-    this.readyPromise = new Promise(() => {});
+    this.readyPromise = localStorageReady;
     this.loadData($location.path());
   }
   
-  loadData (dataPage, tryCounter) {
+  loadData(dataPage, tryCounter) {
     dataPage = dataPage || 'defaultPage';
     let self = this,
       counter = tryCounter || 10;
@@ -49,26 +39,13 @@ class LocalStorageService {
     }
   }
   
-  get () {
-    
-  }
+  get() {}
   
-  static localStorageServiceFactory($localForage, $location){
-    return new LocalStorageService($localForage, $location);
-  }
+  set() {}
 }
 
-LocalStorageService.localStorageServiceFactory.$inject = DI;
-
-export default angular.module('dataBaseTools.localStorage', dependencies)
-  .config(config)
-  .factory('localStorageService', LocalStorageService.localStorageServiceFactory)
-  .name;
-
-config.$inject = ['$localForageProvider'];
-
-function config($localForageProvider) {
-  $localForageProvider.config({
-    name: 'CT'
-  });
-}
+LocalStorageService.$inject = [
+  '$localForage',
+  '$location',
+  'localStorageReady'
+];
