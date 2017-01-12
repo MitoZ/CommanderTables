@@ -45,17 +45,24 @@ import authService from './Modules/AuthService';
     .run([
       '$rootScope',
       '$location',
-      function ($rootScope, $location) {
+      'localStorageService',
+      function ($rootScope, $location, localStorageService) {
+        localStorageService.loadData();
+        
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
           // requires authorization?
           if (!toState.unauthorized) {
             toState.resolve = toState.resolve || {};
             if (!toState.resolve.authorizationResolver) {
               // inject resolver
-              toState.resolve.authorizationResolver.$inject = ['authService', 'localStorageReady'];
-              toState.resolve.authorizationResolver = function (authService, localStorageReady) {
-                return authService.authorize();
-              };
+              // toState.resolve.authorizationResolver.$inject = [];
+              toState.resolve.authorizationResolver = [
+                'authService',
+                'localStorageReady',
+                function (authService, localStorageReady) {
+                  return authService.authorize();
+                }
+              ];
             }
           }
         });
