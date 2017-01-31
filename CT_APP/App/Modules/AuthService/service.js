@@ -17,17 +17,30 @@ export default class AuthService{
     console.log( this.auth.$getAuth() ); //TODO: Delete this before checkIN
   }
   
-  isAuthorized() {
-    return !!this.authorized;
+  login(provider, credential) {
+    switch (provider) {
+      case 'mail':
+        
+        break;
+      case 'google':
+        
+        break;
+      case 'facebook':
+        
+        break;
+      case 'anon':
+        
+        break;
+      default:
+        break;
+    }
   }
   
-  logIn() {
+  logout() {
     
   }
-  logOut() {
-    
-  }
-  signIn() {
+  
+  signIn(type, credential) {
     
   }
 }
