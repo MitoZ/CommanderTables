@@ -7,6 +7,8 @@ import angular from 'angular';
 
 //import angular modules
 import uiRouter from 'angular-ui-router';
+// import 'ui-router-extras';
+// import 'ui-router-extras/release/modular/ct-ui-router-extras.future.min.js';
 import ngMessages from 'angular-messages';
 
 //import material ui for angular
@@ -23,7 +25,8 @@ import config from './application_config';
 //application dependencies
 import dataBaseTools from './DataBaseTools';
 import loginPageModule from './Pages/Login';
-import authService from './Modules/AuthService';
+import homePageModule from './Pages/Home';
+import authServiceModule from './Modules/AuthService';
 
 //start application
 (function () {
@@ -32,10 +35,12 @@ import authService from './Modules/AuthService';
     uiRouter,
     ngMessages,
     ngMaterial,
+    // 'ct.ui.router.extras',
     
     dataBaseTools,
     loginPageModule,
-    authService
+    homePageModule,
+    authServiceModule
   ];
   
   angular.module('commanderTablesApp', dependencies);
@@ -45,52 +50,38 @@ import authService from './Modules/AuthService';
     .run([
       '$rootScope',
       '$location',
+      '$state',
       'localStorageService',
-      function ($rootScope, $location, localStorageService) {
+      'authService',
+      function ($rootScope, $location, $state, localStorageService, authService) {
         localStorageService.loadData();
-        
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
           // requires authorization?
           if (!toState.unauthorized) {
             toState.resolve = toState.resolve || {};
-            if (!toState.resolve.authorizationResolver) {
+            toState.resolve.authServiceResolver = toState.resolve.authServiceResolver || [ 'authService', function (authService) {
+              return authService.auth.$requireSignIn();
+            }];
+          }
+            /*if (!toState.resolve.localStorageResolver) {
               // inject resolver
               // toState.resolve.authorizationResolver.$inject = [];
-              toState.resolve.authorizationResolver = [
-                'authService',
+              toState.resolve.localStorageResolver = [
                 'localStorageReady',
-                function (authService, localStorageReady) {
-                  return authService.authorize();
+                function (localStorageReady) {
+                  return localStorageReady;
                 }
               ];
-            }
-          }
+            }*/
         });
-        // $rootScope.$on('$stateChangeSuccess', function (...rest) {
-          // requires authorization?
-          // console.log(rest); //TODO: Delete this before checkIN
-          // if (!to.unauthorized) {
-          //   to.resolve = to.resolve || {};
-          //   if (!to.resolve.authorizationResolver) {
-          //     // inject resolver
-          //     to.resolve.authorizationResolver = [
-          //       'authService',
-          //       function (authService) {
-          //         return authService.authorize();
-          //       }
-          //     ];
-          //   }
-          // }
-        // });
         
         $rootScope.$on('$stateChangeError', function (evt, toState, toParams, fromState, fromParams, error) {
-          // if (error instanceof AuthorizationError) {
-          //   debugger;
-            // redirect to login with original path we'll be returning back to
-            // $location
-            //   .path('/login')
-            //   .search('returnTo', toState.originalPath);
-          // }
+          // We can catch the error thrown when the $requireSignIn promise is rejected
+          // and redirect the user back to the home page
+          if (error === 'AUTH_REQUIRED') {
+            $state.go('login.page');
+            $location.search();
+          }
         });
       }
     ]);

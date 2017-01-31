@@ -7,16 +7,14 @@ config.$inject = [
   '$stateProvider',
   '$urlRouterProvider',
   '$locationProvider',
-  '$mdThemingProvider',
-  // '$mdIconProvider',
+  '$mdThemingProvider'
 ];
 
 export default function config(
   $stateProvider,
   $urlRouterProvider,
   $locationProvider,
-  $mdThemingProvider/*,
-  $mdIconProvider*/) {
+  $mdThemingProvider) {
   // $mdIconProvider.iconSet('sprite', './Libs/Evil_Icons/svg_sprite/sprite.svg');
   $mdThemingProvider.theme('default')
     .primaryPalette('blue-grey')
@@ -24,19 +22,5 @@ export default function config(
   
   $locationProvider.html5Mode(true);
   
-  $urlRouterProvider.otherwise('/login');
-  
-  // $stateProvider;
-  // $routeProvider
-  //   .when('/', {
-  //     template: require('./Pages/UsersList/template.html'),
-  //     controller: 'page-usersList-controller'
-  //   })
-  //   .when('/tables', {
-  //     template: require('./Pages/Tables/template.html'),
-  //     controller: 'page-tablesList-controller'
-  //   })
-  //   .otherwise({
-  //     redirectTo: '/'
-  //   });
+  $urlRouterProvider.otherwise('/');
 }

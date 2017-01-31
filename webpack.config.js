@@ -65,7 +65,8 @@ module.exports = {
   
   devServer: {
     host: 'localhost',
-    port: '8080',
+    port: '80',
+    https: true,
     contentBase: __dirname + '/CT_APP',
     historyApiFallback: true,
     inline: true,

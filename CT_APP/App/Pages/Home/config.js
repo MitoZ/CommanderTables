@@ -1,9 +1,7 @@
 'use strict';
-/*
- * config.js
- * CommanderTables
- * Created by MitoZ in 06.01.17
-*/
+/**
+ * Created by dzmitry.barkouski on 26.01.2017.
+ */
 
 config.$inject = [
   '$stateProvider',
@@ -12,15 +10,15 @@ config.$inject = [
 export default function config($stateProvider) {
   $stateProvider
     .state({
-      name: 'login',
+      name: 'home',
       template: require('./layout_template.html')
     })
     .state({
-      name: 'login.page',
-      url: '/login',
+      name: 'home.page',
+      url: '/',
       template: require('./template.html'),
-      controller: 'loginPageController',
+      controller: 'mainPageController',
       controllerAs: 'vm',
-      unauthorized: true
+      resolve: {}
     });
 }
