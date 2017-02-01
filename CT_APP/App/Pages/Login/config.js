@@ -17,7 +17,7 @@ export default function config($stateProvider) {
     })
     .state({
       name: 'login.page',
-      url: '/login',
+      url: '/login?returnUrl',
       template: require('./template.html'),
       controller: 'loginPageController',
       controllerAs: 'vm',

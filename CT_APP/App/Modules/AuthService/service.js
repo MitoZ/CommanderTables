@@ -2,42 +2,39 @@
 /**
  * Created by dzmitry.barkouski on 11.01.2017.
  */
-import Firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
-import 'firebase/storage';
-import 'firebase/messaging';
 
 export default class AuthService{
-  constructor(/*localStorageService, */$firebaseAuth, $firebaseObject) {
+  constructor($firebaseAuth) {
     // let ref = new Firebase('https://commandertables.firebaseio.com/');
     this.auth = $firebaseAuth();
-    // this.LSService = localStorageService;
-    console.log( Firebase ); //TODO: Delete this before checkIN
-    console.log( this.auth.$getAuth() ); //TODO: Delete this before checkIN
   }
   
   login(provider, credential) {
-    switch (provider) {
-      case 'mail':
-        
-        break;
-      case 'google':
-        
-        break;
-      case 'facebook':
-        
-        break;
-      case 'anon':
-        
-        break;
-      default:
-        break;
+    let prom = new Promise(()=>{});
+    if (typeof provider === 'string' && provider.length) {
+      switch (provider) {
+        case 'mail':
+          if (credential && credential.mail && credential.pass) {
+            prom = this.auth.$signInWithEmailAndPassword(credential.mail, credential.pass);
+          } else {
+            prom.reject();
+          }
+          break;
+        case 'anon':
+    
+          break;
+        default:
+          prom = this.auth.$signInWithPopup(provider);
+          break;
+      }
+    } else {
+      prom.reject();
     }
+    return prom;
   }
   
   logout() {
-    
+    return this.auth.$signOut();
   }
   
   signIn(type, credential) {
@@ -46,7 +43,5 @@ export default class AuthService{
 }
 
 AuthService.$inject = [
-  // 'localStorageService',
-  '$firebaseAuth',
-  '$firebaseObject'
+  '$firebaseAuth'
 ];
