@@ -41,6 +41,10 @@ module.exports = {
         // exclude: /^_[\w\d]*.less$/
       },
       {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style', 'css!postcss?sourceMap=inline!resolve-url!sass-loader?sourceMap')
+      },
+      {
         test: /\.css/,
         loader: ExtractTextPlugin.extract('style', 'css!postcss?sourceMap=inline')
       }

@@ -1,0 +1,58 @@
+/**
+ * Created by dzmitry.barkouski on 03.02.2017.
+**/
+.is-visible{
+  z-index: 50;
+  opacity: 1;
+
+  .cud-fs-loader-outside{
+    animation: rotate_outside 4s infinite linear;
+  }
+  .cud-fs-loader-inside{
+    animation: rotate_inside 1s linear 0s infinite, change_color_to_gold 4s linear 0s 1;
+  }
+}
+
+@keyframes rotate_outside {
+  from {
+    transform: rotateY( 0deg );
+  }
+  25% {
+    transform: rotateY( 90deg );
+    color: black;
+  }
+  25.01% {
+    transform: rotateY( 90deg );
+    color: red;
+  }
+  74.99% {
+    transform: rotateY( 270deg );
+    color: red;
+  }
+  75% {
+    transform: rotateY( 270deg );
+    color: black;
+  }
+  to {
+    transform: rotateY( 360deg );
+  }
+}
+@keyframes rotate_inside {
+  from {
+    transform: rotateY( 0deg );
+  }
+  50% {
+    transform: rotateY( -180deg );
+  }
+  to {
+    transform: rotateY( -360deg );
+  }
+}
+@keyframes change_color_to_gold{
+  from{
+    fill: gray;
+  }
+  15%{
+    fill: gray;
+  }
+}

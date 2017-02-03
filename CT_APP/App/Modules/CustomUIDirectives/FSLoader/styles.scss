@@ -1,0 +1,52 @@
+/**
+ * Created by dzmitry.barkouski on 02.02.2017.
+**/
+
+.cud-fs-loaderWR{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -20;
+  opacity: 0;
+  background-color: transparentize(white, .15);
+  transition: opacity .3s;
+}
+.cud-fs-loader{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 121px;
+  height: 150px;
+  perspective: 600px;
+}
+.cud-fs-loader-icon{
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.cud-fs-loader-outside, .cud-fs-loader-inside{
+  animation-iteration-count: infinite;
+}
+.cud-fs-loader-outside{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: inherit;
+  z-index: 10;
+  transform-style: preserve-3d;
+}
+.cud-fs-loader-inside{
+  fill: khaki;
+  z-index: 1;
+  transform-origin: 50%;
+}
+
+@import "_states";

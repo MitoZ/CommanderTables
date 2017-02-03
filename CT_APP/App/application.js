@@ -21,6 +21,7 @@ import './Layout/layout.less';
 
 //import application parts
 import config from './application_config';
+import customUIDirectives from './Modules/CustomUIDirectives';
 
 //application dependencies
 import dataBaseTools from './DataBaseTools';
@@ -40,7 +41,8 @@ import authServiceModule from './Modules/AuthService';
     dataBaseTools,
     loginPageModule,
     homePageModule,
-    authServiceModule
+    authServiceModule,
+    customUIDirectives
   ];
   
   angular.module('commanderTablesApp', dependencies);
