@@ -50,31 +50,43 @@ import authServiceModule from './Modules/AuthService';
   angular.module('commanderTablesApp')
     .config(config)
     .run([
+      '$q',
       '$rootScope',
       '$location',
       '$state',
       'localStorageService',
       'authService',
-      function ($rootScope, $location, $state, localStorageService, authService) {
+      function ($q, $rootScope, $location, $state, localStorageService, authService) {
         localStorageService.loadData();
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
           // requires authorization?
+          toState.resolve = toState.resolve || {};
           if (!toState.unauthorized) {
-            toState.resolve = toState.resolve || {};
             toState.resolve.authServiceResolver = toState.resolve.authServiceResolver || [ 'authService', function (authService) {
               return authService.auth.$requireSignIn();
             }];
+          } else if (toParams && toParams.returnUrl && toParams.returnUrl.length) {
+            let redirectPromise = $q.defer();
+            toState.resolve.redirectResolver = toState.resolve.redirectResolver || function () {
+              authService.auth.$requireSignIn().then(()=>{
+                redirectPromise.reject();
+                $location.url( toParams.returnUrl);
+              }, ()=>{
+                redirectPromise.resolve();
+              });
+              return redirectPromise.promise;
+            };
           }
-            /*if (!toState.resolve.localStorageResolver) {
-              // inject resolver
-              // toState.resolve.authorizationResolver.$inject = [];
-              toState.resolve.localStorageResolver = [
-                'localStorageReady',
-                function (localStorageReady) {
-                  return localStorageReady;
-                }
-              ];
-            }*/
+          /*if (!toState.resolve.localStorageResolver) {
+            // inject resolver
+            // toState.resolve.authorizationResolver.$inject = [];
+            toState.resolve.localStorageResolver = [
+              'localStorageReady',
+              function (localStorageReady) {
+                return localStorageReady;
+              }
+            ];
+          }*/
         });
         
         $rootScope.$on('$stateChangeError', function (evt, toState, toParams, fromState, fromParams, error) {

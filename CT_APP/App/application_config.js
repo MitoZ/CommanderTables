@@ -18,6 +18,10 @@ export default function config(
   // $mdIconProvider.iconSet('sprite', './Libs/Evil_Icons/svg_sprite/sprite.svg');
   $mdThemingProvider.theme('default')
     .primaryPalette('blue-grey')
+    .accentPalette('orange')
+    /*.errrosPalette('red')*/;
+  $mdThemingProvider.theme('errors')
+    .primaryPalette('red')
     .accentPalette('orange');
   
   $locationProvider.html5Mode(true);

@@ -21,6 +21,23 @@ export default function config($stateProvider) {
       template: require('./template.html'),
       controller: 'loginPageController',
       controllerAs: 'vm',
-      unauthorized: true
+      unauthorized: true,
+      resolve: {
+        redirectResolver: ['$q' ,'$state','$location', 'authService',
+          function ($q, $state, $location, authService) {
+            let redirectPromise = $q.defer();
+            authService.auth.$requireSignIn().then(()=>{
+              redirectPromise.reject();
+              if ($state.params && $state.params.returnUrl) {
+                $location.url($state.params.returnUrl);
+              } else {
+                $state.go('home.page');
+              }
+            }, ()=>{
+              redirectPromise.resolve();
+            });
+            return redirectPromise.promise;
+          }]
+      }
     });
 }

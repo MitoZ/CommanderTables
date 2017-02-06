@@ -37,8 +37,8 @@ export default class AuthService{
     return this.auth.$signOut();
   }
   
-  signIn(type, credential) {
-    
+  signIn(credential) {
+    return this.auth.$createUserWithEmailAndPassword(credential.mail, credential.pass);
   }
 }
 
