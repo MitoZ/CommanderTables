@@ -93,7 +93,9 @@ import authServiceModule from './Modules/AuthService';
           // We can catch the error thrown when the $requireSignIn promise is rejected
           // and redirect the user back to the home page
           if (error === 'AUTH_REQUIRED') {
-            $state.go('login.page', {returnUrl: $location.absUrl()});
+            $state.go('login.page', {
+              returnUrl: (fromParams && fromParams.returnUrl)? fromParams.returnUrl : $location.absUrl()
+            });
           }
         });
       }
