@@ -40,6 +40,10 @@ export default class AuthService{
   signIn(credential) {
     return this.auth.$createUserWithEmailAndPassword(credential.mail, credential.pass);
   }
+  
+  resetPass(mail) {
+    return this.auth.$sendPasswordResetEmail(mail);
+  }
 }
 
 AuthService.$inject = [

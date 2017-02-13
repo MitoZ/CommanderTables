@@ -7,7 +7,8 @@ export default class LoginRecoverController{
     let vm = this;
     vm.recModel = {};
   }
-  recoveryAccount() {
+  
+  recoveryAccount(mail) {
     
   }
 }

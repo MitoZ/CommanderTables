@@ -37,6 +37,7 @@ export default class LoginPageController {
         this.throwError((error && error.message) ? error.message : 'Unknown login error.');
       });
   }
+  
   register(credential) {
     let form = this._$scope.regForm,
       errors = angular.extend({}, form.regPass.$error, form.confPass.$error, form.regMail.$error);
@@ -76,6 +77,7 @@ export default class LoginPageController {
         });
     }
   }
+  
   throwError(error) {
     this
       .$mdDialog
@@ -89,6 +91,7 @@ export default class LoginPageController {
       );
     console.warn('some error - ', error); //TODO: Delete this before checkIN
   }
+  
   doneRedirect() {
     if (this.$state.params && this.$state.params.returnUrl) {
       this.$location.url(this.$state.params.returnUrl);
