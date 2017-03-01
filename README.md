@@ -4,24 +4,6 @@
 Список планируемого функционала, доступного для (в разработке!)
 
 <table>
-<style>
-       .fun-list{
-        list-style: none;
-       }
-       .fun-list:not(.fun-list-inner) > li{
-           display: block;
-           margin: 10px 0;
-       }
-       .fun-list li:before{
-           content: '-\00a0';
-       }
-       table{
-         width: 100%;
-       }
-       td{
-         vertical-align: top;
-       }
-       </style>
     <tr>
         <th>Организатор</th>
         <th>Игрок</th>
