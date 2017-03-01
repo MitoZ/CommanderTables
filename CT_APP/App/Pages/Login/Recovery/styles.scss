@@ -1,0 +1,31 @@
+/**
+ * Created by dzmitry.barkouski on 10.01.2017.
+**/
+@import "CT_APP/App/Layout/_colors";
+
+.login-resetPass-titleWr{
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+.login-resetPass-title{
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  padding: 12px 24px;
+  white-space: nowrap;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 500;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: $primary-color;
+}
+.login-resetPass-form{
+  margin-top: 20px;
+  padding: 16px;
+}
+.login-resetPass-btnsBar{
+  .l-link{
+    margin-right: 8px;
+  }
+}

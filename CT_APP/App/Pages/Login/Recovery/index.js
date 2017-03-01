@@ -6,7 +6,7 @@
 import angular from 'angular';
 import config from './config';
 import controller from './controller';
-import './styles.less';
+import './styles.scss';
 
 export default angular.module('loginRecoveryModule', [])
   .controller('loginRecoveryController', controller)

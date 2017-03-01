@@ -5,6 +5,7 @@
 
 
 import angular from 'angular';
+import ngMaterial from 'angular-material';
 
 //import firebase database modules + angularFire
 import firebase from 'firebase/app';
@@ -20,7 +21,7 @@ import service from './service';
 
 let dependencies = [
   'firebase',
-  
+  ngMaterial,
   localStorageService
 ];
 

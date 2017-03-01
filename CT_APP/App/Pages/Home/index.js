@@ -5,7 +5,7 @@
 import angular from 'angular';
 import config from './config';
 import controller from './controller';
-import './styles.less';
+import './styles.scss';
 
 
 let dependencies = [

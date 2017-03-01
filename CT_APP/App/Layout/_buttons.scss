@@ -1,7 +1,7 @@
 /**
  * Created by dzmitry.barkouski on 09.01.2017.
 **/
-@import '_colors';
+@import '_colors.scss';
 .l-btn{
 }
 
@@ -10,5 +10,5 @@
 }
 
 .l-btn-text-light{
-  color: @white;
+  color: $white;
 }

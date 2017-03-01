@@ -15,14 +15,20 @@ export default function config(
   $urlRouterProvider,
   $locationProvider,
   $mdThemingProvider) {
-  // $mdIconProvider.iconSet('sprite', './Libs/Evil_Icons/svg_sprite/sprite.svg');
   $mdThemingProvider.theme('default')
-    .primaryPalette('blue-grey')
-    .accentPalette('orange')
-    /*.errrosPalette('red')*/;
-  $mdThemingProvider.theme('errors')
-    .primaryPalette('red')
-    .accentPalette('orange');
+    .primaryPalette('indigo')
+    .accentPalette('deep-orange')
+    .warnPalette('red')
+    .backgroundPalette('grey');
+  // $mdThemingProvider.theme('errors')
+  //   .primaryPalette('red')
+  //   .accentPalette('orange');
+  // $mdIconProvider.iconSet('sprite', './Libs/Evil_Icons/svg_sprite/sprite.svg');
+  $mdThemingProvider.enableBrowserColor({
+    theme: 'default', // Default is 'default'
+    palette: 'primary'//, // Default is 'primary', any basic material palette and extended palettes are available
+    // hue: '200' // Default is '800'
+  });
   
   $locationProvider.html5Mode(true);
   

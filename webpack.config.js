@@ -36,11 +36,6 @@ module.exports = {
         loader: 'base64-inline-loader'
       },
       {
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss?sourceMap=inline!less')//,//?sourceMapLessInline=true
-        // exclude: /^_[\w\d]*.less$/
-      },
-      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style', 'css!postcss?sourceMap=inline!resolve-url!sass-loader?sourceMap')
       },
@@ -58,7 +53,7 @@ module.exports = {
   ],
   resolve: {
     modulesDirectories: ['node_modules'],
-    extensions: ['', '.js', '.css']
+    extensions: ['', '.js', '.css', '.scss']
   },
   postcss: function () {
     return [

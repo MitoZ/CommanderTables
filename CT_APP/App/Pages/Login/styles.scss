@@ -4,7 +4,45 @@
  * CommanderTables
  * Created by MitoZ in 08.01.17
 */
-@import '../../Layout/_colors';
+@import "CT_APP/App/Layout/_colors";
+@import '~sass-material-colors/sass/sass-material-colors';
+
+.login-logoWr{
+  box-sizing: border-box;
+  height: 100px;
+  width: 480px;
+  margin-bottom: 20px;
+  perspective: 1000px;
+
+  &:hover .login-logo {
+    transform: rotateY(180deg);
+  }
+}
+.login-logo{
+  transition: 1s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+.login-logo-icon{
+  fill: inherit;
+  stroke: inherit;
+  height: 80px;
+  width: 80px;
+  color: $primary-color;
+}
+.login-logo-icon, .login-logo-text{
+  backface-visibility: hidden;
+}
+.login-logo-text{
+  transform: rotateY(180deg);
+  line-height: 80px;
+  position: absolute;
+  top: 0;
+  width: auto;
+  background-color: transparentize(material-color('grey', '50'), 0.2);
+}
+
 
 .login-Wr{
   padding: 50px;
@@ -30,14 +68,14 @@
   justify-content: center;
   align-items: center;
   margin: 5px 0;
-  color: fade(@black, 50%);
+  color: fade_out($black, .5);
   &:after{
     content: "";
     position: absolute;
     display: block;
     width: 100%;
     height: 1px;
-    background-color: @border-color;
+    background-color: $border-color;
     top: 50%;
     margin-top: -1px;
     z-index: 1;
@@ -48,7 +86,7 @@
   display: block;
   text-align: center;
   padding: 5px;
-  background-color: @white;
+  background-color: $white;
   z-index: 2;
 }
 .login-alt-socials-item{
@@ -68,7 +106,7 @@
   margin-right: 0;
   margin-left: 0;
   text-transform: none;
-  color: fade(@black, 50%);
+  color: fade_out($black, .5);
   min-width: 50px;
   max-width: 50px;
   overflow: hidden;

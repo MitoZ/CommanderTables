@@ -1,9 +1,9 @@
-<md-tabs md-border-bottom  md-dynamic-height>
+<md-tabs md-border-bottom md-dynamic-height>
   <md-tab label="Log In">
     <md-content class="md-padding" layout="column">
       <form id="loginForm" class="login-form" ng-submit="vm.login('mail', {mail: vm.loginModel.mail, pass: vm.loginModel.pass})" layout="column" name="loginForm">
         <md-input-container>
-          <label>Email</label>
+          <label for="loginInput">Email</label>
           <input id="loginInput" name="loginMail" ng-model="vm.loginModel.mail" required type="email" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'>
           <div ng-messages="loginForm.loginMail.$error" md-auto-hide="false">
             <div ng-message="required">This is required.</div>
@@ -11,16 +11,16 @@
           </div>
         </md-input-container>
         <md-input-container>
-          <label>Password</label>
+          <label for="passInput">Password</label>
           <input id="passInput" name="loginPass" ng-model="vm.loginModel.pass" required type="password">
           <div ng-messages="loginForm.loginPass.$error" md-auto-hide="false">
             <div ng-message="required">This is required.</div>
           </div>
         </md-input-container>
         <p class="login-recoveryAccountLinkWr">
-          <a href="" ui-sref="login.recovery" class="l-link">Forgot password?</a>
+          <a href="" ui-sref="login.pass_reset" class="l-link">Forgot password?</a>
         </p>
-        <md-button class="l-btn" md-colors="{'background': 'default-primary-300'}" type="submit">
+        <md-button class="md-raised md-primary" type="submit">
           <span class="l-btn-text l-btn-text-light">Login</span>
         </md-button>
       </form>
@@ -55,7 +55,7 @@
       
       <form id="registrationForm" class="login-form" ng-submit="vm.register({mail: vm.regModel.mail, pass: vm.regModel.pass})" layout="column" name="regForm">
         <md-input-container>
-          <label>Email</label>
+          <label for="regMailInput">Email</label>
           <input id="regMailInput" name="regMail" ng-model="vm.regModel.mail" required type="email" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'>
           <div ng-messages="regForm.regMail.$error" md-auto-hide="false">
             <div ng-message="required">This is required.</div>
@@ -63,15 +63,15 @@
           </div>
         </md-input-container>
         <md-input-container>
-          <label>Password</label>
-          <input id="regPassInput" name="regPass" ng-model="vm.regModel.pass" ng-minlength="5" required type="password">
+          <label for="regPassInput">Password</label>
+          <input id="regPassInput" name="regPass" ng-model="vm.regModel.pass" ng-minlength="6" required type="password">
           <div ng-messages="regForm.regPass.$error" md-auto-hide="false">
             <div ng-message="required">This is required.</div>
-            <div ng-message="minlength">Password is too short. Minimum length is 5 characters.</div>
+            <div ng-message="minlength">Password is too short. Minimum length is 6 characters.</div>
           </div>
         </md-input-container>
         <md-input-container>
-          <label>Confirm password</label>
+          <label for="regConfPassInput">Confirm password</label>
           <input id="regConfPassInput" name="confPass" ng-pattern="vm.regModel.pass"  ng-model="vm.regModel.confPass" required type="password"><!--cd-compare-pass="vm.regPass"-->
           <div ng-messages="regForm.confPass.$error" md-auto-hide="false">
             <div ng-message="required">This is required.</div>
@@ -79,7 +79,7 @@
           </div>
         
         </md-input-container>
-        <md-button class="l-btn" md-colors="{'background': 'default-primary-300'}" type="submit">
+        <md-button class="md-raised md-accent"  type="submit">
           <span class="l-btn-text l-btn-text-light">Sign up</span>
         </md-button>
       </form>

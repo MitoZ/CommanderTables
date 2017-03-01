@@ -9,9 +9,9 @@
 /// layout parts states
 .header-navMenu-item.is-active{
   .header-navMenu-item-link{
-    background-color: @blue;
+    background-color: $link-color;
     &:hover{
-      background-color: @blue-dark;
+      background-color: $link-color-hover;
     }
   }
 }

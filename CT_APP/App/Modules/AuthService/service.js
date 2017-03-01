@@ -4,9 +4,10 @@
  */
 
 export default class AuthService{
-  constructor($firebaseAuth) {
+  constructor($firebaseAuth, $mdToast) {
     // let ref = new Firebase('https://commandertables.firebaseio.com/');
     this.auth = $firebaseAuth();
+    this.$mdToast = $mdToast;
   }
   
   login(provider, credential) {
@@ -44,8 +45,37 @@ export default class AuthService{
   resetPass(mail) {
     return this.auth.$sendPasswordResetEmail(mail);
   }
+  
+  checkMailVerification() {
+    let userInfo = this.auth.$getAuth();
+    if (userInfo && userInfo.providerData && userInfo.providerData.length && userInfo.providerData[0] && userInfo.providerData[0].providerId === 'password' && !userInfo.emailVerified) {
+      this.$mdToast.show({
+        hideDelay: 10000,
+        position: 'top right',
+        controller: toastCtrl,
+        controllerAs: 'vm',
+        toastClass: 'toast-warn',
+        template: require('./MailVerification_Failed_ToastTemplate.html')
+      });
+    }
+    
+  }
 }
 
 AuthService.$inject = [
-  '$firebaseAuth'
+  '$firebaseAuth',
+  '$mdToast'
 ];
+
+function toastCtrl($mdToast) {
+  this.closeToast = function () {
+    if (this.isDlgOpen) {return;}
+    
+    $mdToast
+      .hide()
+      .then(() => {
+        this.isDlgOpen = false;
+      });
+  };
+}
+toastCtrl.$inject = ['$mdToast'];

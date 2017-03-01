@@ -13,8 +13,6 @@
     "babel-preset-latest": "^6.16.0",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "less": "^2.7.1",
-    "less-loader": "^2.2.3",
     "localforage": "^1.4.3",
     "node-sass": "^4.5.0",
     "postcss-ignore": "^0.1.4",
@@ -22,6 +20,7 @@
     "raw-loader": "^0.5.1",
     "resolve-url-loader": "^1.6.1",
     "sass-loader": "^4.1.1",
+    "sass-material-colors": "0.0.5",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0"
   },

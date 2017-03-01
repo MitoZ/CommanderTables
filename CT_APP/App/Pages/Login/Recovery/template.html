@@ -1,19 +1,19 @@
-<md-toolbar layout="row" layout-align="start center" layout-padding>
-  <h2>Recovery your account</h2>
-</md-toolbar>
+<div class="login-resetPass-titleWr" layout="row" layout-align="start center">
+  <p class="login-resetPass-title">Password Reset</p>
+</div>
 <md-content>
-  <form class="login-recovery-form" ng-submit="vm.recoveryAccount(vm.recModel.mail)" layout="column" name="recoveryForm">
+  <form class="login-resetPass-form" ng-submit="vm.recoveryAccount(vm.recModel.mail)" layout="column" name="recoveryForm">
     <md-input-container>
-      <label>Email</label>
+      <label for="loginInput">Email</label>
       <input id="loginInput" name="recoveryAccMail" ng-model="vm.recModel.mail" required type="email" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'>
       <div ng-messages="recoveryForm.recoveryAccMail.$error" md-auto-hide="false">
         <div ng-message="required">This is required.</div>
         <div ng-message="pattern">This is not valid email address.</div>
       </div>
     </md-input-container>
-    <div class="login-recover-btnsBar" layout="row" layout-align="space-between center">
-      <md-button class="l-btn" md-colors="{'background': 'default-primary-300'}" type="submit">
-        <span class="l-btn-text l-btn-text-light">Recover</span>
+    <div class="login-resetPass-btnsBar" layout="row" layout-align="space-between center">
+      <md-button class="md-raised md-accent" type="submit">
+        <span class="l-btn-text l-btn-text-light">Reset</span>
       </md-button>
       <a href="" ui-sref="login.page" class="l-link">Log In</a>
     </div>

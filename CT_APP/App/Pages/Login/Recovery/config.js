@@ -8,8 +8,8 @@ config.$inject = [
 
 export default function config($stateProvider) {
   $stateProvider.state({
-    name: 'login.recovery',
-    url: '/recovery',
+    name: 'login.pass_reset',
+    url: '/pass_reset',
     template: require('./template.html'),
     controller: 'loginRecoveryController',
     controllerAs: 'vm'

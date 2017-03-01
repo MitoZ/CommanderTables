@@ -2,6 +2,8 @@
 /**
  * Created by dzmitry.barkouski on 08.12.2016.
  **/
+//import custom base styles
+import './Layout/layout.scss';
 //import and create local var angular
 import angular from 'angular';
 
@@ -16,8 +18,6 @@ import 'angular-material/angular-material.css';
 import 'angular-aria';
 import 'angular-animate';
 import ngMaterial from 'angular-material';
-//import custom base styles
-import './Layout/layout.less';
 
 //import application parts
 import config from './application_config';
@@ -54,11 +54,17 @@ import authServiceModule from './Modules/AuthService';
       '$rootScope',
       '$location',
       '$state',
-      'localStorageService',
+      // 'localStorageService',
       'authService',
-      function ($q, $rootScope, $location, $state, localStorageService, authService) {
-        localStorageService.loadData();
-        $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+      function ($q, $rootScope, $location, $state/*, localStorageService*/, authService) {
+        // localStorageService.loadData();
+        $rootScope.$on('$stateChangeSuccess', function (event, toState/*, toParams, fromState, fromParams*/) {
+          if (!toState.unauthorized) {
+            console.info('$stateChangeSuccess - ', toState);
+            authService.checkMailVerification();
+          }
+        });
+        $rootScope.$on('$stateChangeStart', function (event, toState, toParams/*, fromState, fromParams*/) {
           // requires authorization?
           toState.resolve = toState.resolve || {};
           if (!toState.unauthorized) {
