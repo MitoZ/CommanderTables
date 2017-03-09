@@ -34,7 +34,7 @@ export default class LoginPageController {
       },
       (error)=>{
         this.cudFsLoaderService.hide();
-        this.throwError((error && error.message) ? error.message : 'Unknown login error.');
+        this.throwError('Login failed', (error && error.message) ? error.message : 'Unknown login error.');
       });
   }
   
@@ -42,7 +42,7 @@ export default class LoginPageController {
     let form = this._$scope.regForm,
       errors = angular.extend({}, form.regPass.$error, form.confPass.$error, form.regMail.$error);
     if (Object.keys(errors).length || !(credential && credential.mail && credential.pass)) {
-      this.throwError('Validation failed.');
+      this.throwError('Registration failed', 'Validation failed.');
     } else {
       this.cudFsLoaderService.show();
       this.authService.signIn(credential).then(
@@ -65,25 +65,25 @@ export default class LoginPageController {
                 });
             },
             (error)=>{
-              this.throwError((error && error.message) ? error.message : 'Sending verification message error.');
+              this.throwError('Registration failed', (error && error.message) ? error.message : 'Sending verification message error.');
             }
           );
           this.cudFsLoaderService.hide();
         },
         (error)=>{
           this.cudFsLoaderService.hide();
-          this.throwError((error && error.message) ? error.message : 'Unknown register error.');
+          this.throwError('Registration failed', (error && error.message) ? error.message : 'Unknown register error.');
           console.warn('user creation error - ', error); //TODO: Delete this before checkIN
         });
     }
   }
   
-  throwError(error) {
+  throwError(title, error) {
     this
       .$mdDialog
       .show(
         this.$mdDialog.alert({
-          title: 'Register failed',
+          title: title || '',
           textContent: error,
           ok: 'Close',
           theme: 'errors'
