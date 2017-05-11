@@ -10,56 +10,119 @@ module.exports = {
     path: __dirname + '/CT_APP',
     filename: '[name].js'
   },
-  watch: true,
+  // watch: true,
   watchOptions: {
     aggregateTimeOut: 50
   },
-  devtool: 'eval',
-  // devtool: 'source-map',
+  // devtool: 'eval',
+  devtool: 'source-map',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: ['latest'],
-          plugins: ['transform-runtime']
+        loader: 'babel-loader',
+        options: {
+          presets: [["latest", {
+            "es2015": {
+              "modules": false
+            }
+          }]]/*,
+          plugins: ['transform-runtime']*/
         }
       },
       {
         test: /\.html$/,
-        loader: 'raw'
+        loader: 'raw-loader'
       },
       {
-        test: /\.(jpe?g|png|gif|ttf|eot|woff(2)?)(\?[a-z0-9=&.]+)?$/,//|svg
+        test: /\.(jpe?g|png|gif|ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,//
         loader: 'base64-inline-loader'
       },
       {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss?sourceMap=inline!resolve-url!sass-loader?sourceMap')
+        test: /\.scss/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          // 'css!postcss?sourceMap=inline!resolve-url!sass-loader?sourceMap',
+          use: [
+            {
+              loader: 'css-loader'/*,
+             options: {
+             modules: true
+             }*/
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true,
+                plugins: function () {
+                  return [
+                    require('autoprefixer'),
+                    require('cssnano')
+                  ]
+                }
+              }
+            },
+            {
+              loader: 'resolve-url-loader'
+            },
+            {
+              loader: 'sass-loader',
+              options:{
+                sourceMap: true
+              }
+            }
+          ]
+        })
       },
       {
         test: /\.css/,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss?sourceMap=inline')
+        use: ExtractTextPlugin.extract(/*'style', 'css!postcss?sourceMap=inline'*/{
+          fallback: 'style-loader',
+          // 'css!postcss?sourceMap=inline!resolve-url!sass-loader?sourceMap',
+          use: [
+            {
+              loader: 'css-loader'/*,
+             options: {
+             modules: true
+             }*/
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true,
+                plugins: function () {
+                  return [
+                    require('autoprefixer'),
+                    require('cssnano')
+                  ]
+                }
+              }
+            },
+            {
+              loader: 'resolve-url-loader'
+            }
+          ]
+        })
       }
     ],
     noParse: /angular.js/
   },
   plugins: [
     // new webpack.optimize.UglifyJsPlugin(),
-    new webpack.OldWatchingPlugin(),
-    new ExtractTextPlugin('[name].css', {allChunks: true})
+    // new webpack.OldWatchingPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    }),
+    new ExtractTextPlugin({
+      filename:'[name].css',
+      allChunks: true
+    })
   ],
   resolve: {
-    modulesDirectories: ['node_modules'],
-    extensions: ['', '.js', '.css', '.scss']
-  },
-  postcss: function () {
-    return [
-      require('autoprefixer'),
-      require('cssnano')
-    ];
+    modules: ['node_modules'],
+    extensions: ['.js', '.css', '.scss', '.html']
   },
   
   devServer: {
@@ -69,6 +132,7 @@ module.exports = {
     contentBase: __dirname + '/CT_APP',
     historyApiFallback: true,
     inline: true,
+    hot: true,
     compress: true,
     watchOptions: {
       aggregateTimeout: 300,

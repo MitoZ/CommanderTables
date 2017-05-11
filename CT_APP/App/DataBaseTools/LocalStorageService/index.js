@@ -4,7 +4,7 @@
  */
 
 import angular from 'angular';
-import localForage from 'angular-localForage';
+import localForage from 'angular-localforage';
 
 import config from './config';
 import service from './service';
