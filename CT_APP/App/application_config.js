@@ -2,19 +2,25 @@
 /**
  * Created by dzmitry.barkouski on 06.01.2017.
  */
+import angular from 'angular';
 
 config.$inject = [
   '$stateProvider',
   '$urlRouterProvider',
   '$locationProvider',
-  '$mdThemingProvider'
+  '$mdThemingProvider',
+  'DSProvider',
+  'DSHttpAdapterProvider'
 ];
 
 export default function config(
   $stateProvider,
   $urlRouterProvider,
   $locationProvider,
-  $mdThemingProvider) {
+  $mdThemingProvider,
+  DSProvider,
+  DSHttpAdapterProvider
+) {
   $mdThemingProvider.theme('default')
     .primaryPalette('indigo')
     .accentPalette('deep-orange')
@@ -33,4 +39,7 @@ export default function config(
   $locationProvider.html5Mode(true);
   
   $urlRouterProvider.otherwise('/');
+  
+  angular.extend(DSProvider.defaults, {});
+  angular.extend(DSHttpAdapterProvider.defaults, {});
 }

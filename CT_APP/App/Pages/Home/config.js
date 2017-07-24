@@ -11,7 +11,8 @@ export default function config($stateProvider) {
   $stateProvider
     .state({
       name: 'home',
-      template: require('./layout_template.html')
+      template: require('./layout_template.html'),
+      resolve: {}
     })
     .state({
       name: 'home.page',

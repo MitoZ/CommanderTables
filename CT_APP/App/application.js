@@ -13,6 +13,9 @@ import uiRouter from 'angular-ui-router';
 // import 'ui-router-extras/release/modular/ct-ui-router-extras.future.min.js';
 import ngMessages from 'angular-messages';
 
+import 'js-data';
+import jsData from 'js-data-angular';
+
 //import material ui for angular
 import 'angular-material/angular-material.css';
 import 'angular-aria';
@@ -35,6 +38,7 @@ import authServiceModule from './Modules/AuthService';
   let dependencies = [
     uiRouter,
     ngMessages,
+    jsData,
     ngMaterial,
     // 'ct.ui.router.extras',
     

@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9615ba1fd8ffe0383b4a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e016ff18d2971af3630a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -86652,7 +86652,8 @@ config.$inject = ['$stateProvider'];
 function config($stateProvider) {
   $stateProvider.state({
     name: 'home',
-    template: __webpack_require__(52)
+    template: __webpack_require__(52),
+    resolve: {}
   }).state({
     name: 'home.page',
     url: '/',
